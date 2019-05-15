@@ -57,7 +57,7 @@ class PostController extends Controller
 
     public function postAdminUpdate(Request $request)
     {
-        $this->validate($request, [git a
+        $this->validate($request, [
             'title' => 'required|min:5',
             'content' => 'required|min:10'
         ]);
@@ -66,5 +66,12 @@ class PostController extends Controller
         $post->content=$request->input('content');
         $post->save();
         return redirect()->route('admin.index')->with('info', 'Post edited, new Title is: ' . $request->input('title'));
+    }
+
+    public function getAdminDelete($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route('admin.index')->with('info', 'Post deleted!');
     }
 }
