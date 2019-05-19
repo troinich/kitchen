@@ -11,4 +11,9 @@ class Post extends Model
     public function likes(){
         return $this->hasMany('App\Like');
     }
+
+    //create relations in database to tags
+    public function tags(){
+        return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
 }
