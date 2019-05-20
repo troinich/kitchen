@@ -59,3 +59,9 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'admin.delete'
     ]);
 });
+Auth::routes();
+
+Route::post('login', [
+    'uses' => 'SiginController@signin',
+    'as' => 'auth.signin'
+]);
