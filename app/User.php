@@ -26,11 +26,31 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function posts(){
+
+    /*public function posts(){
         return $this->hasMany('App\Post');
 
-    }
+    }*/
     public function roles(){
         return $this->belongsToMany('App\Role');
+    }
+
+    public function hasAnyRole($roles){
+        if(is_array($roles)){
+            foreach($roles as $role){
+                if ($this->hasRole($role)){
+                    return true;
+                }
+            }
+        } else {
+            if ($this->hasRole($roles)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function hasRole($role){
+        return $this->roles()->where('name', $role)->first() ? true : false;
     }
 }

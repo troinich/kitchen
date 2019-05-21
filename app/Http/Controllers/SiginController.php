@@ -17,7 +17,7 @@ class SiginController extends Controller
         if(Auth::attempt(['email'=>$request->input('email'),
             'password'=>$request->input('password')],
             $request->has('remember'))){
-            return redirect()->route('admin.index');
+            return redirect()->route('blog.index');
         }
         return redirect()->back()->with('fail', 'Authentication failed');
     }

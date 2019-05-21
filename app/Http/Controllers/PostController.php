@@ -73,9 +73,10 @@ class PostController extends Controller
             'content' => 'required|min:10'
         ]);
         $post = Post::find($request->input('id'));
-        if(Gate::denies('manipulate-post', $post)){
+        /*if(Gate::denies('manipulate-post', $post)){
             return redirect()->back();
         }
+        */
         $post->title=$request->input('title');
         $post->content=$request->input('content');
         $post->save();
@@ -85,9 +86,11 @@ class PostController extends Controller
 
     public function getAdminDelete($id){
         $post = Post::find($id);
-        if(Gate::denies('manipulate-post', $post)){
+      /*
+         if(Gate::denies('manipulate-post', $post)){
             return redirect()->back();
         }
+        */
         $post->likes()->delete();
         $post->tags()->detach();
         $post->delete();

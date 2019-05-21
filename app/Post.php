@@ -18,7 +18,9 @@ class Post extends Model
     }
 
     //create relations in database to users
-    public function user(){
+    /* public function user(){
         return $this->belongsTo('App\User');
     }
-    }
+    */
+
+}
