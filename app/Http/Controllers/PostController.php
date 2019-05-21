@@ -55,12 +55,13 @@ class PostController extends Controller
             'title' => 'required|min:5',
             'content' => 'required|min:10'
         ]);
-        $user = Auth::user();
+       // $user = Auth::user();
         $post = new Post([
             'title' => $request->input('title'),
             'content' => $request->input('content')
         ]);
-        $user->posts()->save($post);
+      //  $user->posts()->save($post);
+        $post->save();
         $post->tags()->attach($request->input('tags') === null ? [] : $request->input('tags'));
     //    $post->addPost($session, $request->input('title'), $request->input('content'));
         return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
