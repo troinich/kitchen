@@ -13,7 +13,10 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
+            <img src="{{ $post->image }}" width="400px" height="300px" />
+        </div>
+        <div class="col-md-6">
             <p>{{ $post->content }}</p>
         </div>
     </div>

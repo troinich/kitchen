@@ -13,13 +13,13 @@ class PostController extends Controller
 {
     public function getIndex()
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(3);
-        return view('blog.index', ['posts' => $posts]);
+      $posts = Post::orderBy('created_at', 'desc')->paginate(1);
+      return view('blog.index', ['posts' => $posts]);
     }
 
     public function getCategory($category)
     {
-        $posts = Post::where('category', $category)->paginate(3);
+        $posts = Post::where('category', $category)->paginate(7);
         return view('blog.category', ['posts' => $posts]);
     }
     public function getAdminIndex()
