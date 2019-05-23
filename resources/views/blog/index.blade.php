@@ -3,11 +3,11 @@
 
 {{--insert content that applies main page--}}
 @section('content')
-    <div class="row">
+   {{-- <div class="row">
         <div class="col-md-12">
             <p class="quote">Welcome to the world of tastes!</p>
         </div>
-    </div>
+    </div>--}}
     @foreach($posts as $post)
     <div class="row">
         <div class="col-md-12 text-center">

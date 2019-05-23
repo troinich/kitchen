@@ -1,37 +1,43 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
+<div class="container up">
+
+</div>
+<div class="container text-center">
+    <h3>The Kitchen. Satisfy your hunger</h3>
+</div>
+
+<nav class="navbar-inverse">
+    <div class="container">
         <div class="navbar-header">
-            <a href="{{ route('blog.index') }}" class="navbar-brand">GP</a>
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="{{ route('blog.index') }}">Articles</a></li>
-                <li><a href="{{ route('other.about') }}">Contact</a></li>
-                <li><a href="{{ url('/category/pasta') }}">Pasta</a></li>
-                <li><a href="{{ url('/category/chicken') }}">Chicken</a></li>
-
+            <a class="navbar-brand" href="{{ route('blog.index') }}">The Kitchen</a>
+        </div>
+        <ul class="nav navbar-nav navbar-center">
+            <li><a href="{{ url('/category/asian') }}">Asian</a></li>
+            <li><a href="{{ url('/category/pasta') }}">Pasta</a></li>
+            <li><a href="{{ url('/category/vego') }}">Vego</a></li>
+            <li><a href="{{ url('/category/easy') }}">Easy</a></li>
+            <li><a href="{{ url('/category/children') }}">For kids</a></li>
+            <li><a href="{{ route('other.about') }}">Contact Us</a></li>
             </ul>
-            <div class="navbar-header">
+        <ul class="nav navbar-nav navbar-right">
+            @if(!Auth::check())
 
-            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url('/login') }}">Login</a></li>
+                <li><a href="{{ url('/register') }}">Register</a></li>
 
-                    @if(!Auth::check())
-
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-
-                    @else
-                        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-                        <li>
-                            <a href="{{ url('/logout') }}"
-                            onclick="event.preventDefault();
+            @else
+                <li><a href="{{ route('admin.index') }}">Admin</a></li>
+                <li>
+                    <a href="{{ url('/logout') }}"
+                       onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                            Logout
-                            </a>
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                     </form>
                 </li>
-                @endif
-            </ul>
-        </div>
+            @endif
+        </ul>
     </div>
 </nav>
+

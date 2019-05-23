@@ -1,9 +1,38 @@
+body {
+    font-family: 'Montaga', serif;
+}
+
 .quote {
     font: 400 72px "Raleway", Helvetica, sans-serif;
     color: midnightblue;
     text-align: center;
 }
-
+.container{
+    max-width: 911px;
+}
 .post-title {
     color: royalblue;
 }
+h3 {
+    font-weight: bold;
+}
+.up{
+background-image: url('../storage/basil.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+div.up{
+    width: 900px;
+    height: 115px;
+}
+
+@media (min-width: 768px) {
+    .navbar-brand.abs
+    {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+}
+
