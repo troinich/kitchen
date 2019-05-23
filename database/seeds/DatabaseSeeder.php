@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+   public function run()
     {
        $this->call(PostTableSeeder::class);
         $this->call(TagTableSeeder::class);
@@ -18,4 +18,5 @@ class DatabaseSeeder extends Seeder
 
 
     }
+
 }
