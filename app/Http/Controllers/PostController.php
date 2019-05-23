@@ -17,6 +17,11 @@ class PostController extends Controller
         return view('blog.index', ['posts' => $posts]);
     }
 
+    public function getCategory($category)
+    {
+        $posts = Post::where('category', $category)->paginate(3);
+        return view('blog.category', ['posts' => $posts]);
+    }
     public function getAdminIndex()
     {
         $posts = Post::orderBy('title', 'asc')->get();
@@ -53,12 +58,14 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|min:5',
-            'content' => 'required|min:10'
+            'content' => 'required|min:10',
+            'category' => 'required|min:5'
         ]);
        // $user = Auth::user();
         $post = new Post([
             'title' => $request->input('title'),
-            'content' => $request->input('content')
+            'content' => $request->input('content'),
+            'category'=> $request->input('category')
         ]);
       //  $user->posts()->save($post);
         $post->save();
@@ -71,7 +78,8 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|min:5',
-            'content' => 'required|min:10'
+            'content' => 'required|min:10',
+            'category' => 'required|min:5'
         ]);
         $post = Post::find($request->input('id'));
         /*if(Gate::denies('manipulate-post', $post)){
@@ -80,6 +88,8 @@ class PostController extends Controller
         */
         $post->title=$request->input('title');
         $post->content=$request->input('content');
+        $post->category=$request->input('category');
+
         $post->save();
         $post->tags()->sync($request->input('tags') === null ? [] : $request->input('tags'));
         return redirect()->route('admin.index')->with('info', 'Post edited, new Title is: ' . $request->input('title'));

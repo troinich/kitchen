@@ -23,6 +23,15 @@
                             name="content"
                             value="{{ $post->content }}">
                 </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <input
+                            type="text"d
+                            class="form-control"
+                            id="category"
+                            name="category"
+                            value="{{ $post->category }}">
+                </div>
                 @foreach($tags as $tag)
                     <div class="checkbox">
                         <label>

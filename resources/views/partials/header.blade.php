@@ -5,6 +5,9 @@
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="{{ route('blog.index') }}">Articles</a></li>
                 <li><a href="{{ route('other.about') }}">Contact</a></li>
+                <li><a href="{{ url('/category/pasta') }}">Pasta</a></li>
+                <li><a href="{{ url('/category/chicken') }}">Chicken</a></li>
+
             </ul>
             <div class="navbar-header">
 

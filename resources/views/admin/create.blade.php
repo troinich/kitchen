@@ -13,6 +13,10 @@
                     <label for="content">Content</label>
                     <input type="text" class="form-control" id="content" name="content">
                 </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input type="text" class="form-control" id="category" name="category">
+                </div>
                 @foreach($tags as $tag)
                     <div class="checkbox">
                         <label>

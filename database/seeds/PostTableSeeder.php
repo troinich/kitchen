@@ -13,14 +13,16 @@ class PostTableSeeder extends Seeder
     {
         //create some fake data
          $post = new \App\Post([
-            'title'=>"First Seed",
-            'content'=>"First Seed Content"
+            'title'=>"Pasta Carbonara",
+            'content'=>"Spaghetti carbonara – en älskad favorit med rökt fläsk eller bacon och grädde! Lika bra till släktmiddagen som till fredagsmyset.",
+             'category'=>'pasta'
          ]);
          $post->save();
 
          $post = new \App\Post([
-             'title'=>"Second Seed",
-            'content'=>"Second Seed Content"
+             'title'=>"Chicken Tikka Masala",
+            'content'=>"This rich and creamy flavoursome Chicken tikka rivals any Indian restaurant! Why go out when you can make it better at home! With aromatic golden chicken pieces swimming in an incredible curry sauce, this Chicken Tikka Masala recipe is one of the best you will try!",
+             'category'=>'Chicken'
          ]);
          $post->save();
 

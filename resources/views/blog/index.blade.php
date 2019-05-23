@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <p class="quote">Welcome to our journal!</p>
+            <p class="quote">Welcome to the world of tastes!</p>
         </div>
     </div>
     @foreach($posts as $post)

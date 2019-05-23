@@ -15,6 +15,10 @@ Route::get('/', [
     'as' => 'blog.index'
 ]);
 
+Route::get('/category/{category}', [
+    'uses' => 'PostController@getCategory',
+    'as' => 'blog.category'
+]);
 Route::get('post/{id}', [
     'uses' => 'PostController@getPost',
     'as' => 'blog.post'
