@@ -53,4 +53,7 @@ class User extends Authenticatable
     public function hasRole($role){
         return $this->roles()->where('name', $role)->first() ? true : false;
     }
+    public function comments(){
+        return $this->hasMany('App\Comment');
+    }
 }

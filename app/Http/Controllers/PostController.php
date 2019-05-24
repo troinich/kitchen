@@ -74,6 +74,25 @@ class PostController extends Controller
         return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
     }
 
+    public function commentCreate(Request $request)
+    {
+        $this->validate($request, [
+            'content' => 'required|2',
+        ]);
+        // $user = Auth::user();
+        $comment = new Comment([
+            'content' => $request->input('content'),
+        ]);
+        //  $user->posts()->save($post);
+        $post->save();
+        $post->tags()->attach($request->input('tags') === null ? [] : $request->input('tags'));
+        //    $post->addPost($session, $request->input('title'), $request->input('content'));
+        return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
+    }
+
+
+
+
     public function postAdminUpdate(Request $request)
     {
         $this->validate($request, [

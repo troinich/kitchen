@@ -28,6 +28,10 @@ Route::get('post/{id}/like', [
     'uses' => 'PostController@getLikePost',
     'as' => 'blog.post.like'
 ]);
+Route::get('post/{id}/comment', [
+    'uses' => 'PostController@getCommentPost',
+    'as' => 'blog.post.comment'
+]);
 
 Route::get('about', function () {
     return view('other.about');
