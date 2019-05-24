@@ -28,6 +28,7 @@ Route::get('post/{id}/like', [
     'uses' => 'PostController@getLikePost',
     'as' => 'blog.post.like'
 ]);
+
 Route::get('post/{id}/comment', [
     'uses' => 'PostController@getCommentPost',
     'as' => 'blog.post.comment'
@@ -38,6 +39,7 @@ Route::get('about', function () {
 })->name('other.about');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
+
     Route::get('', [
         'uses' => 'PostController@getAdminIndex',
         'as' => 'admin.index',
@@ -79,6 +81,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
         'roles' => 'Admin'
     ]);
 });
+
 Auth::routes();
 
 Route::post('login', [

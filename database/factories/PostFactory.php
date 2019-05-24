@@ -2,6 +2,7 @@
 
 use Faker\Generator as Faker;
 
+//create faked data by faker
 $factory->define(App\Post::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(5),

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use Auth;
+
+//create own signin controller
 
 class SiginController extends Controller
 {

@@ -11,7 +11,7 @@ class TagTableSeeder extends Seeder
              */
             public function run()
             {
-                //create some fake data
+                //create tags
                 $tag = new \App\Tag();
                 $tag->name = "Vegetarian";
                 $tag->save();
@@ -31,6 +31,5 @@ class TagTableSeeder extends Seeder
                 $tag = new \App\Tag();
                 $tag->name = "Easy/Quick";
                 $tag->save();
-
             }
 }
