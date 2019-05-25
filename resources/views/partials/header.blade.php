@@ -1,9 +1,9 @@
-<div class="container up">
-
-</div>
-<div class="container text-center">
-    <h3>The Kitchen. Satisfy your hunger</h3>
-</div>
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <h2 class="display-4">The Kitchen.</h2>
+            <p class="lead"> Satisfy your hunger</p>
+        </div>
+    </div>
 
 <nav class="navbar-inverse">
     <div class="container">

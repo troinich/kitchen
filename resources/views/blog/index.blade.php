@@ -3,34 +3,36 @@
 
 {{--insert content that applies main page--}}
 @section('content')
-   {{-- <div class="row">
-        <div class="col-md-12">
-            <p class="quote">Welcome to the world of tastes!</p>
-        </div>
-    </div>--}}
+    {{-- <div class="row">
+         <div class="col-md-12">
+             <p class="quote">Welcome to the world of tastes!</p>
+         </div>
+     </div>--}}
     @foreach($posts as $post)
-    <div class="row">
-        <div class="col-md-12 text-center">
-            {{-- <h1 class="post-title">{{ $post['title'] }}</h1>--}}
-            <div class="col-md-12" style="padding: 15px">
-                <a href="{{ route('blog.post', ['id' => $post->id]) }}"> <img src="{{ $post->image }}" width="550px" height="430px" /></a>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                {{-- <h1 class="post-title">{{ $post['title'] }}</h1>--}}
+                <div class="col-md-12" style="padding: 15px">
+                    <a href="{{ route('blog.post', ['id' => $post->id]) }}"> <img src="{{ $post->image }}" width="550px"
+                                                                                  height="430px"/></a>
+                </div>
+                <h1 class="post-title">{{ $post->title }}</h1>
+                {{-- <h6>{{ $post->created_at }}</h6> --}}
+                <p style="font-weight: bold">
+                    @foreach($post->tags as $tag)
+                        #{{ $tag->name }}
+                    @endforeach
+                </p>
+                {{-- <p>{{ $post->content }}</p> --}}
+                {{-- <p><a href="{{ route('blog.post', ['id' => $post->id]) }}">Read more...</a></p>--}}
             </div>
-            <h1 class="post-title">{{ $post->title }}</h1>
-           {{-- <h6>{{ $post->created_at }}</h6> --}}
-            <p style="font-weight: bold">
-                @foreach($post->tags as $tag)
-                    #{{ $tag->name }}
-                @endforeach
-            </p>
-           {{-- <p>{{ $post->content }}</p> --}}
-           {{-- <p><a href="{{ route('blog.post', ['id' => $post->id]) }}">Read more...</a></p>--}}
         </div>
-    </div>
-    <hr>
+        <hr>
     @endforeach
+
     <div class="row">
         <div class="col-md-12 text-center">
-        {{--    {{$posts->links()}} --}}
+            {{--    {{$posts->links()}} --}}
         </div>
     </div>
 @endsection

@@ -1,65 +1,59 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <p class="quote">{{ $post->title }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <p>{{ count($post->likes) }} Likes |
-            <a href="{{route('blog.post.like', ['id'=>$post->id]) }}"> Like </a></p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <img src="{{ $post->image }}" width="400px" height="300px" />
-        </div>
-        <div class="col-md-6">
-            <p>{{ $post->content }}</p>
-        </div>
-    </div>
-    <section class = "row new-comment">
-        <div class = col-md-6 col-md-offset-3>
-            <header>
-                <h3>Comment this recipe:</h3>
-            </header>
-            <form action = 'post'>
-                <div class="form-group">
-                    <textarea
-                            class="form-control"
-                            name="new-comment"
-                            id="new-post"
-                            rows="5"
-                            placeholder="Write your comment here">
-                    </textarea>
-                    <button type="submit" class="btn btn-primary">Send!</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+               {{--<img src="{{ asset ('storage/soup.jpg') }}" class="card-img-to img-fluid">--}}
+                <img src="{{ $post->image }}" class="card-img-to img-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ $post->title }}</h3>
+                        <p class="card-text">{{ $post->content }}</p>
+                        <p class="card-text">{{ count($post->likes) }} Likes |
+                            <a href="{{route('blog.post.like', ['id'=>$post->id]) }}"> Like </a></p>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </section>
-    <section class="row comments">
-        <div class = col-md-6 col-md-offset-3>
-            <header>
-               <h3>Comments:</h3>
-            </header>
-            <article class="comment">
-                <p>
+    </div>
+    <div class="container my-3">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <h3 class="text-primary">Comment this recipe:
+                </h3>
+                <form action='post'>
+                    <div class="form-group">
+                        <textarea
+                                class="form-control"
+                                name="new-comment"
+                                placeholder="Write your comment here"
+                                id="new-post"
+                                rows="5">
+                        </textarea>
+                        <button type="submit" class="btn btn-info my-2">Send!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <h3 class="text-primary">Comments:
+                </h3>
                 @foreach($post->comments as $comment)
-                {{ $comment->content }}</p>
-                <div class="info">
-
-                    {{ $comment->user->name}}
-                </div>
-                        <div class="additional">
-                            <a href="#">Edit</a>
-                            <a href="#">Delete</a>
-                        </div>
+                    <article class="border-left border-info pl-2">
+                        {{ $comment->content }}
+                        <br>
+                        <small class="font-italic my-2 small">{{ $comment->user->name}} on {{ $comment->created_at}}
+                        </small>
+                    </article>
+                    <br>
                 @endforeach
-            </article>
+            </div>
         </div>
-    </section>
-
+    </div>
+    {{--<img src="{{ asset ('storage/vegan.jpg') }}"/>--}}
 @endsection
 

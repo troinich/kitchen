@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Like;
 use App\Tag;
+use App\Comment;
+use App\Reklam;
 use Auth;
 use Gate;
 use Illuminate\Http\Request;

@@ -1,39 +1,12 @@
 body {
     font-family: 'Montaga', serif;
-    padding-bottom: 20px;
 }
-
-.quote {
-    font: 400 72px "Raleway", Helvetica, sans-serif;
-    color: midnightblue;
-    text-align: center;
+.jumbotron {
+    background-color: hsl(145,75%,50%) !important;
+    color: white;
+    background-image: url('../storage/basil.jpg');
+    background-size: cover;
 }
-.container{
-    max-width: 911px;
+.border-info {
+    border-width:3px !important;
 }
-.post-title {
-    color: royalblue;
-}
-h3 {
-    font-weight: bold;
-}
-.up{
-background-image: url('../storage/basil.jpg');
-    background-repeat: no-repeat;
-    background-size:cover;
-}
-div.up{
-    width: 900px;
-    height: 115px;
-}
-
-@media (min-width: 768px) {
-    .navbar-brand.abs
-    {
-        position: absolute;
-        width: 100%;
-        left: 0;
-        text-align: center;
-    }
-}
-
