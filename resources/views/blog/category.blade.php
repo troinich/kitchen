@@ -3,31 +3,29 @@
 
 {{--insert content that applies main page--}}
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-
+    <div class="container">
+        <div class="row">
+                @foreach($posts as $post)
+                <div class="col-md-4">
+                <div class="card">
+                    <a href="{{ route('blog.post', ['id' => $post->id]) }}" >
+                    <img src="{{ $post->image }}" alt="{{$post->title}}" class="card-img-top img-fluid">
+                    </a>
+                        <div class="card-body">
+                            <div class="card-title font-weight-bold">{{ $post->title }}</div>
+                            <div class="card-text font-italic text-lowercase">
+                                    @foreach($post->tags as $tag)
+                                    #{{ $tag->name }}
+                                    @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
         </div>
     </div>
-    @foreach($posts as $post)
-        <div class="row">
-            <div class="col-md-12 text-center">
-                {{-- <h1 class="post-title">{{ $post['title'] }}</h1>--}}
-                <h1 class="post-title">{{ $post->title }}</h1>
-                <h6>{{ $post->created_at }}</h6>
-                <p style="font-weight: bold">
-                    @foreach($post->tags as $tag)
-                        #{{ $tag->name }}
-                    @endforeach
-                </p>
-                <p>{{ $post->content }}</p>
-                <p><a href="{{ route('blog.post', ['id' => $post->id]) }}">Read more...</a></p>
-            </div>
-        </div>
-        <hr>
-    @endforeach
-    <div class="row">
-        <div class="col-md-12 text-center">
-            {{$posts->links()}}
-        </div>
+
+    <div class="row justify-content-center">
+        <h4>{{$posts->links()}}</h4>
     </div>
 @endsection

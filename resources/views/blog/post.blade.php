@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-7">
                {{--<img src="{{ asset ('storage/soup.jpg') }}" class="card-img-to img-fluid">--}}
-                <img src="{{ $post->image }}" class="card-img-to img-fluid">
+                <img src="{{ $post->image }}" alt="{{$post->title}}" class="card-img-top img-fluid">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title">{{ $post->title }}</h3>
