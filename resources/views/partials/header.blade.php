@@ -1,10 +1,19 @@
+<div class="jumbotron jumbotron-fluid text-center m-0">
+    <div class="container">
+        <h2 class="display-4">The Kitchen.</h2>
+        <p class="lead"> Satisfy your hunger</p>
+    </div>
+</div>
+
+
 <!-- navbar -->
-<nav class="navbar navbar-expand-sm bg-light">
-    <div>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark mb-3">
+    <a class="navbar-brand" href="{{ route('blog.index') }}">The Kitchen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="navbar-brand" href="{{ route('blog.index') }}">The Kitchen</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/category/asian') }}">Asian</a>
             </li>
@@ -37,15 +46,6 @@
         </ul>
     </div>
 </nav>
-
-<div class="jumbotron jumbotron-fluid text-center">
-    <div class="container">
-        <h2 class="display-4">The Kitchen.</h2>
-        <p class="lead"> Satisfy your hunger</p>
-    </div>
-</div>
-
-
 
 
 

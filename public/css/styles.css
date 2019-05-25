@@ -1,15 +1,14 @@
 body {
     font-family: 'Montaga', serif;
 }
+
 .jumbotron {
-    background-color: hsl(145,75%,50%) !important;
+    background-color: hsl(145, 75%, 50%) !important;
     color: white;
     background-image: url('../storage/basil.jpg');
     background-size: cover;
 }
+
 .border-info {
-    border-width:3px !important;
-}
-.bg-light{
-    background: transparent !important;
+    border-width: 3px !important;
 }
