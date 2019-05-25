@@ -10,3 +10,6 @@ body {
 .border-info {
     border-width:3px !important;
 }
+.bg-light{
+    background: transparent !important;
+}
