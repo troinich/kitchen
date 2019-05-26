@@ -12,3 +12,7 @@ body {
 .border-info {
     border-width: 3px !important;
 }
+
+h1{
+    font-size: 1.4em;
+}

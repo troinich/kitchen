@@ -9,10 +9,9 @@
                 <div class="col-md-7">
                     <div class="card">
                         <div class="card-header text-center">
-                            <h1 class="display-5"> Today's special:
+                            <h1> Today's special:
                                 <br><strong>{{$post->title}}</strong>
-                                <br>in category <em>{{$post->category}}</em></h1>
-
+                                <br>in category <strong>{{$post->category}}</strong></h1>
                         </div>
                         <a href="{{ route('blog.post', ['id' => $post->id]) }}">
                             <img src="{{ $post->image }}" alt="{{$post->title}}" class="card-img-top img-fluid">

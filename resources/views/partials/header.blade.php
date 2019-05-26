@@ -29,16 +29,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/category/children') }}">For kids</a>
             </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+
             @if(!Auth::check())
+
                 <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Register</a></li>
+
             @else
                 <li class="nav-item"><a class="nav-link" href="{{ route('admin.index') }}">Admin</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/logout') }}"
                                         onclick="event.preventDefault();
                document.getElementById('logout-form').submit();">
-                        Logout
-                    </a></li>
+                        Logout <span class="text-danger">({{Auth::user()->name}}<span/>)
+                    </a>
+                </li>
                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
