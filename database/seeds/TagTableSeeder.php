@@ -13,23 +13,23 @@ class TagTableSeeder extends Seeder
             {
                 //create tags
                 $tag = new \App\Tag();
-                $tag->name = "Vegetarian";
+                $tag->name = "30min";
                 $tag->save();
 
                 $tag = new \App\Tag();
-                $tag->name = "For kids";
+                $tag->name = "Jimmy Oliver approved";
                 $tag->save();
 
                 $tag = new \App\Tag();
-                $tag->name = "Asian";
+                $tag->name = "party";
                 $tag->save();
 
                 $tag = new \App\Tag();
-                $tag->name = "European";
+                $tag->name = "romantic_dinner";
                 $tag->save();
 
                 $tag = new \App\Tag();
-                $tag->name = "Easy/Quick";
+                $tag->name = "hot";
                 $tag->save();
             }
 }

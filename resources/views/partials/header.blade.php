@@ -29,6 +29,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/category/children') }}">For kids</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger font-weight-bold" href="{{ url('/vip') }}">VIP</a>
+            </li>
         </ul>
         <ul class="navbar-nav ml-auto">
 

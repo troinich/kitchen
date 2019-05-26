@@ -12,7 +12,7 @@
                             <img src="{{ $post->image }}" alt="{{$post->title}}" class="card-img-top img-fluid">
                         </a>
                         <div class="card-body">
-                            <div class="card-title font-weight-bold">{{ $post->title }}</div>
+                            <div class="card-title font-weight-bold">{{ $post->title }} (cat. {{$post->rank}})</div>
                             <div class="card-text font-italic text-lowercase">
                                 @foreach($post->tags as $tag)
                                     #{{ $tag->name }}

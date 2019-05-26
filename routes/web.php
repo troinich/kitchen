@@ -34,9 +34,12 @@ Route::get('post/{id}/comment', [
     'as' => 'blog.post.comment'
 ]);
 
-Route::get('about', function () {
+Route::get('vip', function () {
     return view('other.about');
-})->name('other.about');
+})->name('other.about')->middleware('auth');
+
+
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 

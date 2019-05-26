@@ -9,7 +9,7 @@ class PostTableSeeder extends Seeder
      *
      * @return void
      */
-    /* public function run()
+        /* public function run()
      {
          //create some fake data
           $post = new \App\Post([
@@ -18,15 +18,6 @@ class PostTableSeeder extends Seeder
               'category'=>'pasta'
           ]);
           $post->save();
-
-          $post = new \App\Post([
-              'title'=>"Chicken Tikka Masala",
-             'content'=>"This rich and creamy flavoursome Chicken tikka rivals any Indian restaurant! Why go out when you can make it better at home! With aromatic golden chicken pieces swimming in an incredible curry sauce, this Chicken Tikka Masala recipe is one of the best you will try!",
-              'category'=>'Chicken'
-          ]);
-          $post->save();
-
-     }
          */
 
 

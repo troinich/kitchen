@@ -19,7 +19,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('category');
-            $table->string('image');
+            $table->integer('rank')->default(1);
+            $table->string('image')->default('https://lorempixel.com/640/480/food/?81238');
             $table->integer('user_id')->default(1);
         });
     }

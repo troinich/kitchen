@@ -23,7 +23,7 @@ class PostController extends Controller
     //see posts divided by categories
     public function getCategory($category)
     {
-        $posts = Post::where('category', $category)->paginate(9);
+        $posts = Post::where('category', $category)->orderBy('rank','asc')->paginate(9);
         return view('blog.category', ['posts' => $posts]);
     }
 
