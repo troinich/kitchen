@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Like;
 use App\Tag;
-use App\Comment;
-use App\Reklam;
 use Auth;
 use Gate;
 use Illuminate\Http\Request;
@@ -81,21 +79,6 @@ class PostController extends Controller
         //  $user->posts()->save($post);
         $post->save();
         $post->tags()->attach($request->input('tags') === null ? [] : $request->input('tags'));
-        return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
-    }
-
-    //will be used to create comments
-    public function commentCreate(Request $request)
-    {
-        $this->validate($request, [
-            'content' => 'required|2',
-        ]);
-        // $user = Auth::user();
-        $comment = new Comment([
-            'content' => $request->input('content'),
-        ]);
-        //  $user->posts()->save($post);
-        $comment->save();
         return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
     }
 

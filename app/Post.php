@@ -18,8 +18,9 @@ class Post extends Model
     }
 
     //create relations in database to likes
-    public function comments(){
-        return $this->hasMany('App\Comment');
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
 }

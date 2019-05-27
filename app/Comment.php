@@ -5,12 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $fillable = ['content', 'post_id', 'user_id'];
-
-    //create relations in database to post
-    public function post(){
-        return $this->belongsTo('App\Post');
-    }
+    protected $fillable = ['content', 'user_id'];
 
     //create relations in database to user
     public function user(){

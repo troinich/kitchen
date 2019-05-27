@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-        <div class="col-md-7">
-               {{--<img src="{{ asset ('storage/soup.jpg') }}" class="card-img-to img-fluid">--}}
+            <div class="col-md-7">
+                {{--<img src="{{ asset ('storage/soup.jpg') }}" class="card-img-to img-fluid">--}}
                 <img src="{{ $post->image }}" alt="{{$post->title}}" class="card-img-top img-fluid">
                 <div class="card">
                     <div class="card-body">
@@ -22,21 +22,25 @@
             <div class="col-md-7">
                 <h3 class="text-primary">Comment this recipe:
                 </h3>
-                <form action='post'>
+                <form method="post" action="{{ route('comment.add') }}">
                     <div class="form-group">
                         <textarea
                                 class="form-control"
-                                name="new-comment"
+                                name="comment_body"
                                 placeholder="Write your comment here"
-                                id="new-post"
                                 rows="5">
                         </textarea>
-                        <button type="submit" class="btn btn-info my-2">Send!</button>
+                        <input type="hidden" name="post_id" value="{{ $post->id }}"/>
                     </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success" value="Add Comment"/>
+                    </div>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-7">

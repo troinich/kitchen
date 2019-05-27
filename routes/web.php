@@ -29,10 +29,7 @@ Route::get('post/{id}/like', [
     'as' => 'blog.post.like'
 ]);
 
-Route::get('post/{id}/comment', [
-    'uses' => 'PostController@getCommentPost',
-    'as' => 'blog.post.comment'
-]);
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 
 Route::get('vip', function () {
     return view('other.about');
