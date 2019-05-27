@@ -27,13 +27,17 @@
                         <textarea
                                 class="form-control"
                                 name="comment_body"
-                                placeholder="Write your comment here"
+                      g          placeholder="Write your comment here. Only registered and logged users can add comments"
                                 rows="5">
                         </textarea>
                         <input type="hidden" name="post_id" value="{{ $post->id }}"/>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-success" value="Add Comment"/>
+                        @if(Auth::check())
+                            <input type="submit" class="btn btn-success" value="Add Comment"/>
+                        @else
+                            <input type="submit" class="btn btn-secondary" disabled value="Add Comment"/>
+                        @endif
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 </form>
