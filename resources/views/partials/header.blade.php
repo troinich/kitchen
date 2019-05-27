@@ -27,7 +27,7 @@
                 <a class="nav-link" href="{{ url('/category/easy') }}">Easy</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/category/children') }}">For kids</a>
+                <a class="nav-link" href="{{ url('/category/forkids') }}">For kids</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-danger font-weight-bold" href="{{ url('/vip') }}">VIP</a>
