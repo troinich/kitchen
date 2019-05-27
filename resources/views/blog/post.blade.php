@@ -24,11 +24,10 @@
                 </h3>
                 <form method="post" action="{{ route('comment.add') }}">
                     <div class="form-group">
-                        <textarea
-                                class="form-control"
-                                name="comment_body"
-                      g          placeholder="Write your comment here. Only registered and logged users can add comments"
-                                rows="5">
+                       <textarea class="form-control"
+                                 name="comment_body"
+                                 placeholder="Write your comment here. Only registered and logged users can add comments"
+                                 rows="5">
                         </textarea>
                         <input type="hidden" name="post_id" value="{{ $post->id }}"/>
                     </div>
