@@ -3,31 +3,29 @@
 
 {{--insert content that applies main page--}}
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <p class="quote">Welcome to our journal!</p>
-        </div>
-    </div>
-    @foreach($posts as $post)
-    <div class="row">
-        <div class="col-md-12 text-center">
-            {{-- <h1 class="post-title">{{ $post['title'] }}</h1>--}}
-            <h1 class="post-title">{{ $post->title }}</h1>
-            <h6>{{ $post->created_at }}</h6>
-            <p style="font-weight: bold">
-                @foreach($post->tags as $tag)
-                    #{{ $tag->name }}
-                @endforeach
-            </p>
-            <p>{{ $post->content }}</p>
-            <p><a href="{{ route('blog.post', ['id' => $post->id]) }}">Read more...</a></p>
-        </div>
-    </div>
-    <hr>
-    @endforeach
-    <div class="row">
-        <div class="col-md-12 text-center">
-            {{$posts->links()}}
+    <div class="container">
+        <div class="row justify-content-center">
+            @foreach($posts as $post)
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h1> Today's special:
+                                <br><strong>{{$post->title}}</strong>
+                                <br>in category <strong>{{$post->category}}</strong></h1>
+                        </div>
+                        <a href="{{ route('blog.post', ['id' => $post->id]) }}">
+                            <img src="{{ $post->image }}" alt="{{$post->title}}" class="card-img-top img-fluid">
+                        </a>
+                        <div class="card-body text-center">
+                            <div class="card-text font-italic text-lowercase">
+                                <button class="btn btn-outline-success"><a
+                                            href="{{ route('blog.category', ['id' => $post->category]) }}">
+                                        Check other receipts in same category</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection

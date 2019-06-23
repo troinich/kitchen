@@ -9,20 +9,20 @@ class PostTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        //create some fake data
-         $post = new \App\Post([
-            'title'=>"First Seed",
-            'content'=>"First Seed Content"
-         ]);
-         $post->save();
+        /* public function run()
+     {
+         //create some fake data
+          $post = new \App\Post([
+             'title'=>"Pasta Carbonara",
+             'content'=>"Spaghetti carbonara – en älskad favorit med rökt fläsk eller bacon och grädde! Lika bra till släktmiddagen som till fredagsmyset.",
+              'category'=>'pasta'
+          ]);
+          $post->save();
+         */
 
-         $post = new \App\Post([
-             'title'=>"Second Seed",
-            'content'=>"Second Seed Content"
-         ]);
-         $post->save();
 
+        public function run()
+        {
+            factory('App\Post', 300)->create();
+        }
     }
-}

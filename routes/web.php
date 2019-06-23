@@ -15,6 +15,10 @@ Route::get('/', [
     'as' => 'blog.index'
 ]);
 
+Route::get('/category/{category}', [
+    'uses' => 'PostController@getCategory',
+    'as' => 'blog.category'
+]);
 Route::get('post/{id}', [
     'uses' => 'PostController@getPost',
     'as' => 'blog.post'
@@ -25,11 +29,17 @@ Route::get('post/{id}/like', [
     'as' => 'blog.post.like'
 ]);
 
-Route::get('about', function () {
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+
+Route::get('vip', function () {
     return view('other.about');
-})->name('other.about');
+})->name('other.about')->middleware('auth');
+
+
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
+
     Route::get('', [
         'uses' => 'PostController@getAdminIndex',
         'as' => 'admin.index',
@@ -39,28 +49,39 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 
     Route::get('create', [
         'uses' => 'PostController@getAdminCreate',
-        'as' => 'admin.create'
+        'as' => 'admin.create',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
 
     Route::post('create', [
         'uses' => 'PostController@postAdminCreate',
-        'as' => 'admin.create'
+        'as' => 'admin.create',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
 
     Route::get('edit/{id}', [
         'uses' => 'PostController@getAdminEdit',
-        'as' => 'admin.edit'
+        'as' => 'admin.edit',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
 
     Route::post('edit', [
         'uses' => 'PostController@postAdminUpdate',
-        'as' => 'admin.update'
+        'as' => 'admin.update',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
     Route::get('delete/{id}', [
         'uses' => 'PostController@getAdminDelete',
-        'as' => 'admin.delete'
+        'as' => 'admin.delete',
+        'middleware' => 'roles',
+        'roles' => 'Admin'
     ]);
 });
+
 Auth::routes();
 
 Route::post('login', [

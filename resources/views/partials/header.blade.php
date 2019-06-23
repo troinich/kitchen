@@ -1,34 +1,61 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="{{ route('blog.index') }}" class="navbar-brand">GP</a>
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="{{ route('blog.index') }}">Articles</a></li>
-                <li><a href="{{ route('other.about') }}">Contact</a></li>
-            </ul>
-            <div class="navbar-header">
+<div class="jumbotron jumbotron-fluid text-center m-0">
+    <div class="container">
+        <h2 class="display-4">The Kitchen.</h2>
+        <p class="lead"> Satisfy your hunger</p>
+    </div>
+</div>
 
-            <ul class="nav navbar-nav navbar-right">
 
-                    @if(!Auth::check())
+<!-- navbar -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark mb-3">
+    <a class="navbar-brand" href="{{ route('blog.index') }}">The Kitchen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/category/asian') }}">Asian</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/category/pasta') }}">Pasta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/category/vego') }}">Vego</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/category/easy') }}">Easy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/category/forkids') }}">For kids</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger font-weight-bold" href="{{ url('/vip') }}">VIP</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
 
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+            @if(!Auth::check())
 
-                    @else
-                        <li><a href="{{ route('admin.index') }}">Admin</a></li>
-                        <li>
-                            <a href="{{ url('/logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            Logout
-                            </a>
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Register</a></li>
+
+            @else
+                <li class="nav-item"><a class="nav-link" href="{{ route('admin.index') }}">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/logout') }}"
+                                        onclick="event.preventDefault();
+               document.getElementById('logout-form').submit();">
+                        Logout <span class="text-danger">({{Auth::user()->name}}<span/>)
+                    </a>
                 </li>
-                @endif
-            </ul>
-        </div>
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            @endif
+        </ul>
     </div>
 </nav>
+
+
+
+

@@ -1,9 +1,18 @@
-.quote {
-    font: 400 72px "Raleway", Helvetica, sans-serif;
-    color: midnightblue;
-    text-align: center;
+body {
+    font-family: 'Montaga', serif;
 }
 
-.post-title {
-    color: royalblue;
+.jumbotron {
+    background-color: hsl(145, 75%, 50%) !important;
+    color: white;
+    background-image: url('../storage/basil.jpg');
+    background-size: cover;
+}
+
+.border-info {
+    border-width: 3px !important;
+}
+
+h1{
+    font-size: 1.4em;
 }

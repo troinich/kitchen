@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['title', 'content', 'category', 'image', 'user_id'];
 
     //create relations in database to likes
     public function likes(){
@@ -17,10 +17,10 @@ class Post extends Model
         return $this->belongsToMany('App\Tag')->withTimestamps();
     }
 
-    //create relations in database to users
-    /* public function user(){
-        return $this->belongsTo('App\User');
+    //create relations in database to likes
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
     }
-    */
 
 }

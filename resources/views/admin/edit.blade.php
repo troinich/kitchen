@@ -23,6 +23,15 @@
                             name="content"
                             value="{{ $post->content }}">
                 </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <input
+                            type="text"d
+                            class="form-control"
+                            id="category"
+                            name="category"
+                            value="{{ $post->category }}">
+                </div>
                 @foreach($tags as $tag)
                     <div class="checkbox">
                         <label>
@@ -34,7 +43,7 @@
 
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $postId }}">
-                <button type="submit" class="btn btn-primary">Make changes to the post</button>
+                <button type="submit" class="btn btn-primary mb-3">Make changes to the post</button>
             </form>
         </div>
     </div>
